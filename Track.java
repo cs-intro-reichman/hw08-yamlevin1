@@ -15,22 +15,20 @@ class Track {
     /** Returns this track's data as "artist, title, minutes:seconds".
      *  For example, "John Lennon, Imagine, 3:07" */
     public String toString() {
-        //// Replace the following statement with code that returns
-        //// the data of this track according to the method's documentation.
-        return artist + ", " + title + ", " + duration;
+        return (this.artist + ", " + this.title + ", " + this.duration);
     }
 
     /** Returns this track's title. */
     public String getTitle() {
-        return title;
+        return this.title;
     }
     /** Returns this track's artist. */
     public String getArtist() {
-        return artist;
+        return this.artist;
     }
     /** Returns this track's duration. */
     public int getDuration() {
-        return duration;
+        return this.duration;
     }
 
     /** If this track's duration is shorter than the other track's duration
@@ -42,7 +40,11 @@ class Track {
     // Returns a string that represents the totalSeconds as "minutes:seconds",
     // Where seconds is always two digits. For example, "3:17" or "12:05".
     private String formattedDuration(int totalSeconds) {
-        //// replace the following statement with your code
-        return "";
+        int minutes = totalSeconds / 60;
+        int sec = totalSeconds - (minutes * 60);
+        if (sec < 10) {
+            return (minutes + ":0" + sec);
+        }
+        return (minutes + ":" + sec);
     }
 }
